@@ -1,4 +1,4 @@
-CNN-based Imitation Learning for SuperTuxKart Ice-Hockey
+# CNN-based Imitation Learning for SuperTuxKart Ice-Hockey
 
 William Chung, 
 Furkan Goktas, 
