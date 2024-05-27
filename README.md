@@ -114,16 +114,16 @@ Variables to control the agent were chosen to be minimal while providing suffici
 
 We included the ‘puck to goal distance magnitude’ parameter to allow for the possibility of different behaviors such as being more offensive when the kart is closer to the goal or being more defensive when it is farther away from the goal.  These variables are illustrated in Figure 2.
 
+![tuxkart](https://github.com/cualum/SuperTuxKart-Deep-Learning/assets/137105371/d37c7b35-4b8c-4847-b067-63f5a998fe57)
+**Figure 2:** Illustration of state variables for agent
+
 C. Agent Control Network
 
 Pytorch [5] was used for this project.  The agent control network takes an input tensor of 14 (seven states for each player).  This input is split into a group of seven for the first player and a group of seven for the second player.  The  two groups are passed two identical parallel subnetworks (one for each kart) with the action outputs  from each network concatenated as the network output.  This allows for the possibility of each kart learning different behaviors while maintaining a single network architecture.  Each parallel subnetwork consisted of three fully connected layers followed by ReLU activation functions.  The first layer maps the seven input features to a hidden layer of size 512.  This process is repeated with another hidden layer of size 512 and a final output layer of size three.  Each output is concatenated forming a final output of size 6.
 
 
 
-<p id="gdcalert1" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image1.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert2">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
 
-
-![alt_text](images/image1.png "image_tooltip")
 
 
 **Figure 2:** Illustration of state variables for agent
