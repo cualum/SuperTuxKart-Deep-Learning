@@ -4,7 +4,7 @@ William Chung	        Furkan Goktas
 
 Sameer Kausar       Shawn Tanner
 
-**ABSTRACT**
+## ABSTRACT
 
 This paper presents the development and implementation of a state-based agent for playing the SuperTuxKart Ice hockey game. The agent is designed using Convolutional Neural Networks (CNN) and Imitation Learning; its aim is to score as many goals as possible in a 2 vs. 2 tournament against other agents developed by the course instructors. The methodology involves gathering and balancing training data, implementing a CNN model for real-time playing, training the network, and evaluating the agent's performance. The results demonstrate the effectiveness of the state-based approach in mastering complex game strategies without vision input. Future work includes exploring further enhancements to the agent's capabilities and performance, with specific attention to optimizing real-time decision-making.
 
@@ -12,43 +12,42 @@ This paper presents the development and implementation of a state-based agent fo
     _Terms_—SuperTuxKart, Deep Learning, Reinforcement Learning, Imitation Learning, Neural Networks, Convolutional Neural Networks, Pytorch.
 
 
-**I. INTRODUCTION
+## I. INTRODUCTION
 
 SuperTuxKart is a popular open-source kart racing game, inspired by the classic Mario Kart series. Players control characters from various open-source games and projects, racing against each other on colorful tracks while using items to gain advantages or hinder opponents. The game is known for its engaging gameplay, vibrant graphics, and support for both single-player and multiplayer modes. This project focuses on developing a state-based agent for playing the SuperTuxKart ice hockey game, intending to explore the capabilities of deep learning in mastering this challenging game.
 
-_A. Aim_
+A. Aim
 
 The aim of this project is to design and implement a state-based agent that can effectively play the SuperTuxKart ice hockey game, scoring as many goals as possible and winning matches in 2 vs. 2 tournaments against agents developed by the course instructors. By utilizing a state-based approach, we aim to leverage the information from each game state which includes data on player karts, opponent karts, and the ball to make informed decisions and execute effective strategies in real-time.
 
-_B. Objective_
+B. Objective
 
 The primary objective of this project is to demonstrate the effectiveness of a state-based agent in playing the SuperTuxKart ice hockey game. This involves gathering and balancing training data, implementing a Convolutional Neural Network (CNN) model for real-time playing, and evaluating the agent's performance quantitatively and qualitatively. Additionally, we aim to explore the limitations of the state-based approach and identify potential areas for improvement and future research.
 
-<p style="text-align: right">
-<strong>II. BACKGROUND / RELATED WORK</strong> </p>
+## II. BACKGROUND / RELATED WORK</strong> </p>
 
 
-_A. Machine Learning in Games_
+A. Machine Learning in Games
 
 Machine learning (ML) techniques have found diverse applications in game development, including the development of non-player characters (NPCs) with realistic and adaptive behaviors. ML algorithms can train NPCs to exhibit human-like behaviors, such as learning from player interactions and adapting their strategies over time. ML is also used in procedural content generation (PCG), player analytics, personalization, game testing, and debugging. For our project, we will be leveraging machine learning techniques, specifically imitation and reinforcement learning, to develop a state-based agent for playing ice hockey in SuperTuxKart.
 
-_B. Deep Learning_
+B. Deep Learning
 
 Deep learning [1], a subfield of machine learning, has revolutionized the field of artificial intelligence. It involves the use of neural networks with multiple layers to learn complex patterns in data. Deep learning has achieved remarkable success in various domains, including computer vision, natural language processing, and game playing. In the context of our project, we will be using deep learning techniques, specifically convolutional neural networks (CNNs), to analyze game state data and make informed decisions.
 
-_C. Imitation Learning_
+C. Imitation Learning
 
 Imitation learning [2] is a machine learning paradigm where an agent learns by imitating the behavior demonstrated by expert demonstrations. In the context of game-playing agents, imitation learning can be used to train agents to mimic the behavior of expert players, enabling them to perform well in complex game environments. For our project, we will explore the use of imitation learning techniques to train our agents using expert demonstrations from the provided agents developed by the course instructors.
 
-_D. Reinforcement Learning_
+D. Reinforcement Learning
 
 Reinforcement learning [3] is another machine learning paradigm that has been widely used in the development of game-playing agents. In reinforcement learning, an agent learns to make decisions by interacting with an environment and receiving feedback in the form of rewards or penalties. The agent's goal is to maximize the cumulative reward over time, leading to the emergence of intelligent behavior. In our project, we will be using reinforcement learning to train our agent to play SuperTuxKart ice hockey and to develop an agent that can effectively compete against human players.
 
-_E. SuperTuxKart_
+E. SuperTuxKart
 
 SuperTuxKart [4] is an open-source kart racing game, similar to Mario Kart, that offers a fun and engaging gaming experience. It features a variety of tracks, characters, and items, making it a popular choice among gamers. The game's open-source nature has led to a vibrant community of developers and modders, contributing to its ongoing development and popularity.
 
-**III. DESIGN AND METHODOLOGY** 
+## III. DESIGN AND METHODOLOGY 
 
 _A. Gathering Training Data_
 
