@@ -115,49 +115,27 @@ Variables to control the agent were chosen to be minimal while providing suffici
 We included the ‘puck to goal distance magnitude’ parameter to allow for the possibility of different behaviors such as being more offensive when the kart is closer to the goal or being more defensive when it is farther away from the goal.  These variables are illustrated in Figure 2.
    <div style="text-align: center;">
     <img src="https://github.com/cualum/SuperTuxKart-Deep-Learning/assets/137105371/d37c7b35-4b8c-4847-b067-63f5a998fe57" width="600">
-   </div>
-
-
-   
+   </div>   
 **Figure 2:** Illustration of state variables for agent
 
 C. Agent Control Network
 
 Pytorch [5] was used for this project.  The agent control network takes an input tensor of 14 (seven states for each player).  This input is split into a group of seven for the first player and a group of seven for the second player.  The  two groups are passed two identical parallel subnetworks (one for each kart) with the action outputs  from each network concatenated as the network output.  This allows for the possibility of each kart learning different behaviors while maintaining a single network architecture.  Each parallel subnetwork consisted of three fully connected layers followed by ReLU activation functions.  The first layer maps the seven input features to a hidden layer of size 512.  This process is repeated with another hidden layer of size 512 and a final output layer of size three.  Each output is concatenated forming a final output of size 6.
+   <div style="text-align: center;">
+    <img src="https://github.com/cualum/SuperTuxKart-Deep-Learning/assets/137105371/ee841307-7d97-440d-91c0-205ff3c57f4b" width="600">
+   </div>   
+**Figure 3:** Network architecture
 
-
-
-
-
-
-**Figure 2:** Illustration of state variables for agent
 
 D.  Training parameters
 
-	The training process utilized the Adam optimizer with a learning rate of 0.001 and a weight decay of 1e-5.  Using the MultiStepLR scheduler, the learning rate was adjusted every ten iterations starting at 20 with a gamma of 0.5.  The loss function was the L1Loss from the torch.nn library.  After some experimentation, a final batch size of 150 was used. A typical loss plot is shown in Figure 4.
+The training process utilized the Adam optimizer with a learning rate of 0.001 and a weight decay of 1e-5.  Using the MultiStepLR scheduler, the learning rate was adjusted every ten iterations starting at 20 with a gamma of 0.5.  The loss function was the L1Loss from the torch.nn library.  After some experimentation, a final batch size of 150 was used. A typical loss plot is shown in Figure 4.
 
 E.  Overfitting
 
-_	_To avoid overfitting, two strategies were invoked; early stopping, and model complexity limitation.  Admittedly this aspect of the work was not as controlled and investigated as it should be, in part, due to time constraints.  Fitting was typically stopped around 50 epochs even though more epochs could produce lower loss.  Additionally, the model inputs were minimized (seven parameters per player) and the model size was kept to a minimum (three fully connected layers).  Given more time, this space could be fully investigated and likely better results 
+To avoid overfitting, two strategies were invoked; early stopping, and model complexity limitation.  Admittedly this aspect of the work was not as controlled and investigated as it should be, in part, due to time constraints.  Fitting was typically stopped around 50 epochs even though more epochs could produce lower loss.  Additionally, the model inputs were minimized (seven parameters per player) and the model size was kept to a minimum (three fully connected layers).  Given more time, this space could be fully investigated and likely better results obtained.  The metric for this agent was the number of goals scored against four other agents throughout eight games, converted to a score value. Ultimately we obtained a score of 91 on the known test set and a score of 88 on the unknown test set so even though our method was not well mapped, it produced a result that indicates good generalization.  
 
 
-
-<p id="gdcalert2" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image2.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert3">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image2.png "image_tooltip")
-
-
-**Figure 3:** Network architecture
-
-obtained.  The metric for this agent was the number of goals scored against four other agents throughout eight games, converted to a score value. Ultimately we obtained a score of 91 on the known test set and a score of 88 on the unknown test set so even though our method was not well mapped, it produced a result that indicates good generalization.  
-
-
-
-<p id="gdcalert3" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image3.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert4">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image3.png "image_tooltip")
 
 
 **Figure 4:** Loss vs epochs
