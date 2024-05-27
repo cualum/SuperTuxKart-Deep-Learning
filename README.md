@@ -1,8 +1,8 @@
 CNN-based Imitation Learning for SuperTuxKart Ice-Hockey
 
-William Chung
-Furkan Goktas
-Sameer Kausar
+William Chung, 
+Furkan Goktas, 
+Sameer Kausar, 
 Shawn Tanner
 
 ## ABSTRACT
