@@ -12,7 +12,7 @@ This paper presents the development and implementation of a state-based agent fo
     _Terms_—SuperTuxKart, Deep Learning, Reinforcement Learning, Imitation Learning, Neural Networks, Convolutional Neural Networks, Pytorch.
 
 
-            **I. INTRODUCTION**
+**I. INTRODUCTION
 
 SuperTuxKart is a popular open-source kart racing game, inspired by the classic Mario Kart series. Players control characters from various open-source games and projects, racing against each other on colorful tracks while using items to gain advantages or hinder opponents. The game is known for its engaging gameplay, vibrant graphics, and support for both single-player and multiplayer modes. This project focuses on developing a state-based agent for playing the SuperTuxKart ice hockey game, intending to explore the capabilities of deep learning in mastering this challenging game.
 
