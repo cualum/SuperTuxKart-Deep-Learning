@@ -99,7 +99,7 @@ To collect data for training our agent, we first selected the 'best' supplied te
 
 We modified the supplied code to run a loop of round-robin matches between our agent (Jurgen) and randomly selected opponents. During each match, the team designation (0 or 1), puck starting position, and opponents (test agents) were randomly chosen from predefined distributions. The puck's starting position was determined based on a random choice of six distributions, ensuring variability in the game environment. 
 
-The max score was set to one for each match, and only matches resulting in our agent scoring a goal were saved. The collected data included the state and action variables of each player from our team.  This data collection process continued until 445,000 frame records were captured, ensuring a sufficient amount of data for training our agent. Additionally, we planned to further enhance our agent using reinforcement learning (Temporal-Displacement Deep Q-Network (TDDQN)) if needed and if time permits.
+The max score was set to one for each match, and only matches resulting Jurgen scoring a goal were saved. The collected data included the state and action variables of each player from the Jurgen agent.  This data collection process continued until 445,000 frame records were captured, ensuring a sufficient amount of data for training our agent. Additionally, we planned to further enhance our agent using reinforcement learning (Temporal-Displacement Deep Q-Network (TDDQN)) if needed and if time permits.
 
 B. Agent state variables
 
