@@ -114,8 +114,11 @@ Variables to control the agent were chosen to be minimal while providing suffici
 
 We included the ‘puck to goal distance magnitude’ parameter to allow for the possibility of different behaviors such as being more offensive when the kart is closer to the goal or being more defensive when it is farther away from the goal.  These variables are illustrated in Figure 2.
    <div style="text-align: center;">
-    <img src="https://github.com/cualum/Shinkansen-Experience/assets/137105371/d37c7b35-4b8c-4847-b067-63f5a998fe57" width="600">
+    <img src="https://github.com/cualum/SuperTuxKart-Deep-Learning/assets/137105371/d37c7b35-4b8c-4847-b067-63f5a998fe57" width="600">
    </div>
+
+
+   
 **Figure 2:** Illustration of state variables for agent
 
 C. Agent Control Network
