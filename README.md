@@ -10,7 +10,7 @@ Shawn Tanner
 This paper presents the development and implementation of a state-based agent for playing the SuperTuxKart Ice hockey game. The agent is designed using Convolutional Neural Networks (CNN) and Imitation Learning; its aim is to score as many goals as possible in a 2 vs. 2 tournament against other agents developed by the course instructors. The methodology involves gathering and balancing training data, implementing a CNN model for real-time playing, training the network, and evaluating the agent's performance. The results demonstrate the effectiveness of the state-based approach in mastering complex game strategies without vision input. Future work includes exploring further enhancements to the agent's capabilities and performance, with specific attention to optimizing real-time decision-making.
 
 
-    _Terms_—SuperTuxKart, Deep Learning, Reinforcement Learning, Imitation Learning, Neural Networks, Convolutional Neural Networks, Pytorch.
+Terms: SuperTuxKart, Deep Learning, Reinforcement Learning, Imitation Learning, Neural Networks, Convolutional Neural Networks, Pytorch.
 
 
 ## I. INTRODUCTION
@@ -50,7 +50,7 @@ SuperTuxKart [4] is an open-source kart racing game, similar to Mario Kart, that
 
 ## III. DESIGN AND METHODOLOGY 
 
-_A. Gathering Training Data_
+A. Gathering Training Data
 
 To collect data for training our agent, we first selected the 'best' supplied test agent for imitation learning. This selection was made by running each test agent through the known test set and choosing the agent with the highest score. Jurgen was identified as the best-performing agent, achieving a score of 97 points with its default kart ‘Sarah_the_racer’.
 
@@ -101,12 +101,9 @@ We modified the supplied code to run a loop of round-robin matches between our a
 
 The max score was set to one for each match, and only matches resulting in our agent scoring a goal were saved. The collected data included the state and action variables of each player from our team.  This data collection process continued until 445,000 frame records were captured, ensuring a sufficient amount of data for training our agent. Additionally, we planned to further enhance our agent using reinforcement learning (Temporal-Displacement Deep Q-Network (TDDQN)) if needed and if time permits.
 
-_B. Agent state variables_
+B. Agent state variables
 
-_	_Variables to control the agent were chosen to be minimal while providing sufficient information to control the kart.  In the end, we chose seven variables, five of which were calculated from the base state variables, for input to the agent control network:
-
-
-
+Variables to control the agent were chosen to be minimal while providing sufficient information to control the kart.  In the end, we chose seven variables, five of which were calculated from the base state variables, for input to the agent control network:
 1. Kart x position
 2. Kart y position
 3. Puck to goal angle
@@ -117,7 +114,7 @@ _	_Variables to control the agent were chosen to be minimal while providing suff
 
 We included the ‘puck to goal distance magnitude’ parameter to allow for the possibility of different behaviors such as being more offensive when the kart is closer to the goal or being more defensive when it is farther away from the goal.  These variables are illustrated in Figure 2.
 
-_C. Agent Control Network_
+C. Agent Control Network
 
 Pytorch [5] was used for this project.  The agent control network takes an input tensor of 14 (seven states for each player).  This input is split into a group of seven for the first player and a group of seven for the second player.  The  two groups are passed two identical parallel subnetworks (one for each kart) with the action outputs  from each network concatenated as the network output.  This allows for the possibility of each kart learning different behaviors while maintaining a single network architecture.  Each parallel subnetwork consisted of three fully connected layers followed by ReLU activation functions.  The first layer maps the seven input features to a hidden layer of size 512.  This process is repeated with another hidden layer of size 512 and a final output layer of size three.  Each output is concatenated forming a final output of size 6.
 
@@ -131,11 +128,11 @@ Pytorch [5] was used for this project.  The agent control network takes an input
 
 **Figure 2:** Illustration of state variables for agent
 
-D.  _Training parameters_
+D.  Training parameters
 
 	The training process utilized the Adam optimizer with a learning rate of 0.001 and a weight decay of 1e-5.  Using the MultiStepLR scheduler, the learning rate was adjusted every ten iterations starting at 20 with a gamma of 0.5.  The loss function was the L1Loss from the torch.nn library.  After some experimentation, a final batch size of 150 was used. A typical loss plot is shown in Figure 4.
 
-_E.  Overfitting_
+E.  Overfitting
 
 _	_To avoid overfitting, two strategies were invoked; early stopping, and model complexity limitation.  Admittedly this aspect of the work was not as controlled and investigated as it should be, in part, due to time constraints.  Fitting was typically stopped around 50 epochs even though more epochs could produce lower loss.  Additionally, the model inputs were minimized (seven parameters per player) and the model size was kept to a minimum (three fully connected layers).  Given more time, this space could be fully investigated and likely better results 
 
