@@ -116,7 +116,7 @@ We included the ‘puck to goal distance magnitude’ parameter to allow for the
    <div style="text-align: center;">
     <img src="https://github.com/cualum/SuperTuxKart-Deep-Learning/assets/137105371/d37c7b35-4b8c-4847-b067-63f5a998fe57" width="400">
    </div>   
-**Figure 2:** Illustration of state variables for agent
+** Figure 2: Illustration of state variables for agent
 
 C. Agent Control Network
 
@@ -124,7 +124,7 @@ Pytorch [5] was used for this project.  The agent control network takes an input
    <div style="text-align: center;">
     <img src="https://github.com/cualum/SuperTuxKart-Deep-Learning/assets/137105371/ee841307-7d97-440d-91c0-205ff3c57f4b" width="400">
    </div>   
-**Figure 3:** Network architecture
+** Figure 3: Network architecture
 
 
 D.  Training parameters
@@ -137,11 +137,10 @@ To avoid overfitting, two strategies were invoked; early stopping, and model com
    <div style="text-align: center;">
     <img src="https://github.com/cualum/SuperTuxKart-Deep-Learning/assets/137105371/cdb94fe5-2ae5-4b24-b8f0-5bc9f973e267" width="400">
    </div>  
-**Figure 4:** Loss vs epochs
+** Figure 4: Loss vs epochs
 
-**IV. RESULTS**
-
-_	_A score of 73 using the known test set was obtained using ‘Tux’ as our kart.  At this point, we experimented with changing the kart on this trained network.  The results are shown in Figure 5.  Each kart has four attributes in the game:  1) mass, 2) maximum speed, 3) acceleration, and 4) nitro efficiency.  Inspection of the in-game statistics for the karts shows there are basically three classes of karts.  Light karts have lower mass, lower top speed, and higher acceleration.  Heavy karts have a higher mass, higher top speed, and lower acceleration.  Medium karts are in the middle of these two.  Inspection of the karts in-game suggests that karts of a similar type are very similar in their attributes, at least as far as can be discerned from the in-game graphic.  The actual number could not be found.  Generally speaking, light karts did the best, followed by medium then heavy as shown by the local grader results.  It was somewhat surprising to see that although ‘Sarah_the_racer’ was used to obtain the training data, it was not the best-performing kart for our trained agent.  It was also surprising that ‘Kiki’, a light kart, performed so poorly.  At least visually, the properties/stats of ‘Kiki’ look almost identical to those of ‘Wilber’.  We can only conclude that the in-game graphic is misleading or missing information.  It was also somewhat surprising that there was such a large range of results between the karts.
+## IV. RESULTS
+A score of 73 using the known test set was obtained using ‘Tux’ as our kart.  At this point, we experimented with changing the kart on this trained network.  The results are shown in Figure 5.  Each kart has four attributes in the game:  1) mass, 2) maximum speed, 3) acceleration, and 4) nitro efficiency.  Inspection of the in-game statistics for the karts shows there are basically three classes of karts.  Light karts have lower mass, lower top speed, and higher acceleration.  Heavy karts have a higher mass, higher top speed, and lower acceleration.  Medium karts are in the middle of these two.  Inspection of the karts in-game suggests that karts of a similar type are very similar in their attributes, at least as far as can be discerned from the in-game graphic.  The actual number could not be found.  Generally speaking, light karts did the best, followed by medium then heavy as shown by the local grader results.  It was somewhat surprising to see that although ‘Sarah_the_racer’ was used to obtain the training data, it was not the best-performing kart for our trained agent.  It was also surprising that ‘Kiki’, a light kart, performed so poorly.  At least visually, the properties/stats of ‘Kiki’ look almost identical to those of ‘Wilber’.  We can only conclude that the in-game graphic is misleading or missing information.  It was also somewhat surprising that there was such a large range of results between the karts.
 
 
 <table>
@@ -298,9 +297,7 @@ _	_A score of 73 using the known test set was obtained using ‘Tux’ as our ka
    </td>
   </tr>
 </table>
-
-
-**Figure 5:** Score with various karts
+** Figure 5: Score with various karts
 
 
 <table>
@@ -347,12 +344,11 @@ _	_A score of 73 using the known test set was obtained using ‘Tux’ as our ka
 </table>
 
 
-**Figure 6:** Score vs each agent
+** Figure 6: Score vs each agent
 
 
-            **VII. CONCLUSION **
-
-**	**Using simple imitation learning of the test agent Jurgen with the kart ‘Sarah_the_racer’, we were able to obtain a score of 91 on the known test set and a corresponding score of 88 on the unknown test set.  The results vs each opponent agent are shown in Figure 6.  We would rate the following in order as having the most impact on the success or failure of this project:
+## VII. CONCLUSION
+Using simple imitation learning of the test agent Jurgen with the kart ‘Sarah_the_racer’, we were able to obtain a score of 91 on the known test set and a corresponding score of 88 on the unknown test set.  The results vs each opponent agent are shown in Figure 6.  We would rate the following in order as having the most impact on the success or failure of this project:
 
 
 
