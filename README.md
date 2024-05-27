@@ -120,6 +120,7 @@ We included the ‘puck to goal distance magnitude’ parameter to allow for the
 **Figure 2:** Illustration of state variables for agent
 
 C. Agent Control Network
+
 Pytorch [5] was used for this project.  The agent control network takes an input tensor of 14 (seven states for each player).  This input is split into a group of seven for the first player and a group of seven for the second player.  The  two groups are passed two identical parallel subnetworks (one for each kart) with the action outputs  from each network concatenated as the network output.  This allows for the possibility of each kart learning different behaviors while maintaining a single network architecture.  Each parallel subnetwork consisted of three fully connected layers followed by ReLU activation functions.  The first layer maps the seven input features to a hidden layer of size 512.  This process is repeated with another hidden layer of size 512 and a final output layer of size three.  Each output is concatenated forming a final output of size 6.
    <div style="text-align: center;">
     <img src="https://github.com/cualum/SuperTuxKart-Deep-Learning/assets/137105371/ee841307-7d97-440d-91c0-205ff3c57f4b" width="400">
@@ -142,6 +143,7 @@ To avoid overfitting, two strategies were invoked; early stopping, and model com
 **Figure 4:** Loss vs epochs
 
 ## IV. RESULTS
+
 A score of 73 using the known test set was obtained using ‘Tux’ as our kart.  At this point, we experimented with changing the kart on this trained network.  The results are shown in Figure 5.  Each kart has four attributes in the game:  1) mass, 2) maximum speed, 3) acceleration, and 4) nitro efficiency.  Inspection of the in-game statistics for the karts shows there are basically three classes of karts.  Light karts have lower mass, lower top speed, and higher acceleration.  Heavy karts have a higher mass, higher top speed, and lower acceleration.  Medium karts are in the middle of these two.  Inspection of the karts in-game suggests that karts of a similar type are very similar in their attributes, at least as far as can be discerned from the in-game graphic.  The actual number could not be found.  Generally speaking, light karts did the best, followed by medium then heavy as shown by the local grader results.  It was somewhat surprising to see that although ‘Sarah_the_racer’ was used to obtain the training data, it was not the best-performing kart for our trained agent.  It was also surprising that ‘Kiki’, a light kart, performed so poorly.  At least visually, the properties/stats of ‘Kiki’ look almost identical to those of ‘Wilber’.  We can only conclude that the in-game graphic is misleading or missing information.  It was also somewhat surprising that there was such a large range of results between the karts.
 
 
